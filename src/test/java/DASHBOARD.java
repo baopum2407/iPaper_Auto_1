@@ -138,19 +138,13 @@ public class DASHBOARD {
         get_hosodi.click();
         driver.getTitle().contains(params.title_taohoso);
         Thread.sleep(1000);
-        WebElement get_icon_sta = driver.findElement(icon_sta);
-        get_icon_sta.click();
-        Thread.sleep(10000);
     }
 
     public void TC009() throws InterruptedException {
         WebElement get_hosonhap = driver.findElement(hosonhap);
         get_hosonhap.click();
         driver.getTitle().contains(params.title_taohoso);
-        Thread.sleep(1000);
-        WebElement get_icon_sta = driver.findElement(icon_sta);
-        get_icon_sta.click();
-        Thread.sleep(10000);
+
     }
 
     public void TC010() throws InterruptedException {
@@ -158,12 +152,13 @@ public class DASHBOARD {
         get_hosolienquan.click();
         driver.getTitle().contains(params.title_taohoso);
         Thread.sleep(1000);
-        WebElement get_icon_sta = driver.findElement(icon_sta);
-        get_icon_sta.click();
-        Thread.sleep(10000);
+
     }
 
     public void TC011() throws InterruptedException {
+        WebElement get_icon_sta = driver.findElement(icon_sta);
+        get_icon_sta.click();
+        Thread.sleep(10000);
         WebElement get_tonghoso = driver.findElement(tonghoso);
         get_tonghoso.click();
         Thread.sleep(2000);
