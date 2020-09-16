@@ -21,6 +21,22 @@ public class Params {
     public String size = "(40, 40)";
     public String wellcome = "Welcome";
     public String notification = "Notification";
+    public String title_page_detailDocument = "Test thể hiện ký số";
+    public String title_page_userInformation = "iPaper System - User information";
+    public String font_weight = "700";
+    public String thong_ke = "Thống kê";
+    public String hosocuatoi = "Hồ sơ của tôi";
+    public String hosoden = "Hồ sơ đến";
+    public String hosodi = "Hồ sơ đi";
+    public String hosonhap = "Hồ sơ nháp";
+    public String hosolienquan = "Hồ sơ liên quan";
+    public String thongketrangthaihoso = "Thống kê trạng thái hồ sơ các phòng ban";
+    public String tonghoso = "Tổng số hồ sơ";
+    public String hosodaduyet = "Hồ sơ đã duyệt";
+    public String hosotuchoi = "Hồ sơ từ chối";
+    public String hosochuaduyet = "Hồ sơ chưa duyệt";
+    public String title_taohoso = "iPaper System - Hồ sơ";
+    public String timhoso = "iPaper System - Tìm hồ sơ";
 
     public void printToTxt(String message) {
 

@@ -1,4 +1,3 @@
-import gherkin.lexer.Pa;
 import org.junit.experimental.theories.Theories;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.By;
@@ -11,9 +10,12 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class TodoList {
+
     Params params = new Params();
     private WebDriver driver;
+    HomePage homePage = new HomePage(driver);
     private By img_HD_Mini = By.cssSelector("#logoutform > div > a > span.logo-mini > img");
+    private By img_HD_large = By.cssSelector("#logoutform > div > a > span.logo-lg > img");
     private By icon_sta = By.className("u-fa-dashboard");
     private By icon_ducoment = By.className("u-fa-todo");
     private By icon_search_document = By.className("u-fa-list-request");
@@ -28,7 +30,15 @@ public class TodoList {
     private By username = By.xpath("//*[@id=\"logoutform\"]/div/nav/div[1]/div/ul/li[2]/a/p");
     private By language = By.xpath("//*[@id=\"logoutform\"]/div/nav/div[1]/div/ul/li[3]/a");
     private By notification_table = By.xpath("//*[@id=\"logoutform\"]/div/nav/div[1]/div/ul/li[1]/ul/li[1]/span[1]/b");
-    private By user_infor_Logout = By.xpath("//*[@id=\"logoutform\"]/div/nav/div[1]/div/ul/li[2]/ul");
+    private By user_infor_Logout = By.xpath("//*[@id=\"infoUser\"]");
+    private By notifi_messagebody = By.xpath("/html/body/div[1]/header/form/div/nav/div[1]/div/ul/li[1]/ul/li[2]/ul/li[1]/a");
+    private By log_out = By.xpath("//*[@id=\"logout\"]");
+    private By change_language = By.xpath("//*[@id=\"logoutform\"]/div/nav/div[1]/div/ul/li[3]/ul/li/a/img");
+    private By not_read = By.xpath("/html/body/div[1]/header/form/div/nav/div[1]/div/ul/li[1]/ul/li[2]/ul/li[1]/a/h4/small[2]/i[1]");
+    private By massage_after_click_not_read = By.xpath("/html/body/div[1]/header/form/div/nav/div[1]/div/ul/li[1]/ul/li[2]/ul/li[1]/a/h4");
+    private By read_all = By.xpath("/html/body/div[1]/header/form/div/nav/div[1]/div/ul/li[1]/ul/li[1]/span[2]");
+    private By count_notifi = By.xpath("/html/body/div[1]/header/form/div/nav/div[1]/div/ul/li[1]/a/span[1]");
+    private By delete_notifi = By.xpath("/html/body/div[1]/header/form/div/nav/div[1]/div/ul/li[1]/ul/li[2]/ul/li[6]/a/h4/small[1]");
 
     public TodoList(WebDriver driver) {
         this.driver = driver;
@@ -188,5 +198,110 @@ public class TodoList {
         get_username.click();
         Thread.sleep(2000);
         get_Userinfor.isDisplayed();
+    }
+
+    public void TC028() throws InterruptedException {
+        WebElement get_toogle_showdesktop = driver.findElement(toogle_showdesktop);
+        get_toogle_showdesktop.click();
+        Thread.sleep(1000);
+        WebElement get_img_large = driver.findElement(img_HD_large);
+        get_img_large.isDisplayed();
+        params.printToTxt("\nMở rộng menu");
+    }
+
+    public void TC027() throws InterruptedException {
+        WebElement get_toogle_showdesktop = driver.findElement(toogle_showdesktop);
+        get_toogle_showdesktop.click();
+        Thread.sleep(1000);
+        WebElement get_img_mimi = driver.findElement(img_HD_Mini);
+        get_img_mimi.isDisplayed();
+        params.printToTxt("\nMenu thu gọn");
+    }
+
+    public void TC029() throws InterruptedException {
+        WebElement get_icon_notifcation = driver.findElement(notification);
+        get_icon_notifcation.click();
+        Thread.sleep(1000);
+        WebElement get_messagebody = driver.findElement(notifi_messagebody);
+        get_messagebody.click();
+        Thread.sleep(7000);
+        driver.getTitle().contains(params.title_page_detailDocument);
+        params.printToTxt("\nMove detail page success");
+    }
+
+    public void TC030() throws InterruptedException {
+        WebElement get_username = driver.findElement(username);
+        get_username.click();
+        Thread.sleep(2000);
+        WebElement get_user_inforLogout = driver.findElement(user_infor_Logout);
+        get_user_inforLogout.click();
+        Thread.sleep(2000);
+        driver.getTitle().contains(params.title_page_userInformation);
+        params.printToTxt("\nĐiều hướng đến page thông tin người dùng");
+    }
+
+    public void TC031() throws InterruptedException {
+        WebElement get_username = driver.findElement(username);
+        get_username.click();
+        Thread.sleep(2000);
+        WebElement get_user_Logout = driver.findElement(log_out);
+        get_user_Logout.click();
+        Thread.sleep(2000);
+        driver.getTitle().contains(params.iPaperSystem);
+        params.printToTxt("\nThực hiện thoát tài khoản thành công");
+    }
+
+    public void TC032() throws InterruptedException {
+        Thread.sleep(3000);
+        WebElement get_language = driver.findElement(language);
+        get_language.click();
+        Thread.sleep(2000);
+        WebElement get_change_language = driver.findElement(change_language);
+        get_change_language.click();
+        Thread.sleep(2000);
+        driver.getTitle().contains("iPaper System - Thông tin người dùng");
+        params.printToTxt("Chuyển sang tiếng Việt");
+    }
+
+    public void TC033() throws InterruptedException {
+        WebElement get_icon_notifcation = driver.findElement(notification);
+        get_icon_notifcation.click();
+        Thread.sleep(1000);
+        WebElement get_not_read = driver.findElement(not_read);
+        get_not_read.isSelected();
+        WebElement get_massage_after_click_not_read = driver.findElement(massage_after_click_not_read);
+        get_massage_after_click_not_read.getCssValue("font-weight").isEmpty();
+        params.printToTxt("\n1. Chuyển trạng thái thành đã đọc" + "2. Chữ thường");
+    }
+
+    public void TC034() throws InterruptedException {
+        WebElement get_icon_notifcation = driver.findElement(notification);
+        get_icon_notifcation.click();
+        Thread.sleep(1000);
+        WebElement get_not_read = driver.findElement(not_read);
+        get_not_read.click();
+        WebElement get_massage_after_click_not_read = driver.findElement(massage_after_click_not_read);
+        get_massage_after_click_not_read.getCssValue("font-weight").contains(params.font_weight);
+        params.printToTxt("\n1. Chuyển trạng thái thành chưa đọc" + "2. Chữ đậm");
+    }
+
+    public void TC035() throws InterruptedException {
+        WebElement get_icon_notifcation = driver.findElement(notification);
+        get_icon_notifcation.click();
+        Thread.sleep(1000);
+        WebElement get_read_all = driver.findElement(read_all);
+        get_read_all.click();
+        WebElement get_count_notifi = driver.findElement(count_notifi);
+        get_count_notifi.getText().contains("0");
+        params.printToTxt("\nTick chọn toàn bộ thông báo");
+    }
+
+    public void TC036() throws InterruptedException {
+        WebElement get_icon_notifcation = driver.findElement(notification);
+        get_icon_notifcation.click();
+        Thread.sleep(1000);
+        WebElement get_delete_notifi = driver.findElement(delete_notifi);
+        get_delete_notifi.click();
+        params.printToTxt("\nXóa thông báo");
     }
 }
