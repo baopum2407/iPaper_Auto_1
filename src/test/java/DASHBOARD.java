@@ -28,6 +28,7 @@ public class DASHBOARD {
     private By bieudo = By.xpath("/html/body/div[1]/div/div/div/div/div[3]/div/div[1]/div[2]/div/svg/rect[2]");
     private By toogle_showdesktop = By.className("sidebar-toggle");
     private By ketquatimkiem = By.xpath("//*[@id=\"tableList\"]/div[1]/div[2]");
+    private By status_hosodaduyet = By.xpath("//*[@id=\"select2-statusCode-container\"]");
 
     public DASHBOARD(WebDriver driver) {
         this.driver = driver;
@@ -128,9 +129,6 @@ public class DASHBOARD {
         WebElement get_hosoden = driver.findElement(hosoden);
         get_hosoden.click();
         driver.getTitle().contains(params.title_taohoso);
-        WebElement get_icon_sta = driver.findElement(icon_sta);
-        get_icon_sta.click();
-        Thread.sleep(10000);
     }
 
     public void TC008() throws InterruptedException {
@@ -165,5 +163,17 @@ public class DASHBOARD {
         driver.getTitle().contains(params.timhoso);
         WebElement get_keyquatimkiem = driver.findElement(ketquatimkiem);
         get_keyquatimkiem.isDisplayed();
+    }
+
+    public void TC012() throws InterruptedException {
+        driver.navigate().back();
+        WebElement get_icon_sta = driver.findElement(icon_sta);
+        get_icon_sta.click();
+        Thread.sleep(6000);
+        WebElement get_hososdaduyet = driver.findElement(hososdaduyet);
+        get_hososdaduyet.click();
+        WebElement get_stthosodaduyet = driver.findElement(status_hosodaduyet);
+        get_stthosodaduyet.getAttribute("title").contains(params.stt_hosodaduyet);
+
     }
 }

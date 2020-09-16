@@ -37,6 +37,7 @@ public class Params {
     public String hosochuaduyet = "Hồ sơ chưa duyệt";
     public String title_taohoso = "iPaper System - Hồ sơ";
     public String timhoso = "iPaper System - Tìm hồ sơ";
+    public String stt_hosodaduyet = "Hồ sơ đã duyệt";
 
     public void printToTxt(String message) {
 

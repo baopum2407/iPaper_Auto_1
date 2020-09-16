@@ -36,6 +36,7 @@ public class Untils {
         dashboard.TC009();
         dashboard.TC010();
         dashboard.TC011();
+        dashboard.TC012();
         System.out.println("DASHBOARD success");
         //Dang Nhap
         //Title page must correct before continue
