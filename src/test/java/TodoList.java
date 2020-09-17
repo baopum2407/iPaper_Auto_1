@@ -83,7 +83,7 @@ public class TodoList {
     public void TC003_to_TC006_TC008() throws InterruptedException {
         WebElement getIcon_static = driver.findElement(icon_sta);
         getIcon_static.click();
-        Thread.sleep(10000);
+        Thread.sleep(12000);
 
         WebElement get_iconDocument = driver.findElement(icon_ducoment);
         get_iconDocument.click();

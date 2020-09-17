@@ -38,6 +38,18 @@ public class Params {
     public String title_taohoso = "iPaper System - Hồ sơ";
     public String timhoso = "iPaper System - Tìm hồ sơ";
     public String stt_hosodaduyet = "Hồ sơ đã duyệt";
+    public String stt_hosotuchoi = "Hồ sơ đã từ chối";
+    public String stt_hosochuaduyet = "Hồ sơ chưa duyệt";
+    public String title_Dashboard = "iPaper System - Thống kê";
+    public int sum_default = 293;
+    public int sun_default_hosodi = 553;
+    public int sum_default_hosonhap = 16006;
+    public int sum_default_hosolienquan = 25;
+    public int default_tonghoso = 789;
+    public int default_dosodaduyet = 166;
+    public int defaul_hosotuchoi = 39;
+    public int default_hosochuaduyet = 439;
+
 
     public void printToTxt(String message) {
 
