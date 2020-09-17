@@ -1,3 +1,6 @@
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import org.junit.experimental.theories.Theories;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.By;

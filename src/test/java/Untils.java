@@ -1,3 +1,7 @@
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+import cucumber.api.java.gl.E;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -25,10 +29,14 @@ public class Untils {
         //Access address HDBank
         homePage.getByAdvanced();
         homePage.getByProcessLink();
-
+        ExtentHtmlReporter reporter = new ExtentHtmlReporter("./iPaperReport.html");
+        ExtentReports extentReports = new ExtentReports();
+        extentReports.attachReporter(reporter);
+        ExtentTest test;
         //Dang Nhap
         //Title page must correct before continue
         if (driver.getTitle().contains(params.expectedTitle)) {
+
             homePage.TC001_TC002();
 
             homePage.TC003();
@@ -118,5 +126,7 @@ public class Untils {
         }
         Thread.sleep(5000);
         driver.close();
+
+
     }
 }

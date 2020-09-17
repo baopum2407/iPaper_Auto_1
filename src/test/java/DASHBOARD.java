@@ -400,8 +400,4 @@ public class DASHBOARD {
         int temp = Integer.parseInt(get_value_tonghoso.getText());
         params.printToTxt("\nTổng số hồ sơ là: " + temp);
     }
-
-    public void TC025() {
-
-    }
 }
