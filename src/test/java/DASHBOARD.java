@@ -1,7 +1,4 @@
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
 
 public class DASHBOARD {
@@ -393,6 +390,39 @@ public class DASHBOARD {
         WebElement get_to_date = driver.findElement(to_date);
         get_to_date.click();
         get_to_date.sendKeys("12/10/2020");
+        WebElement get_btn_timkiem = driver.findElement(btn_timkiem);
+        get_btn_timkiem.click();
+        Thread.sleep(7000);
+        WebElement get_value_tonghoso = driver.findElement(value_tonghoso);
+        int temp = Integer.parseInt(get_value_tonghoso.getText());
+        params.printToTxt("\nTổng số hồ sơ là: " + temp);
+    }
+
+    public void TC025() throws InterruptedException {
+        WebElement get_from_date = driver.findElement(from_date);
+        get_from_date.click();
+        get_from_date.sendKeys("10/01/2020");
+        get_from_date.sendKeys(Keys.TAB);
+        Thread.sleep(1000);
+        WebElement get_to_date = driver.findElement(to_date);
+        get_to_date.sendKeys("12/01/2020");
+        WebElement get_btn_timkiem = driver.findElement(btn_timkiem);
+        get_btn_timkiem.click();
+        Thread.sleep(7000);
+        WebElement get_value_tonghoso = driver.findElement(value_tonghoso);
+        int temp = Integer.parseInt(get_value_tonghoso.getText());
+        params.printToTxt("\nTổng số hồ sơ là: " + temp);
+    }
+
+    public void TC027() throws InterruptedException {
+        Thread.sleep(2000);
+        WebElement get_from_date = driver.findElement(from_date);
+        get_from_date.click();
+        get_from_date.sendKeys("10/01/2020");
+        get_from_date.sendKeys(Keys.TAB);
+        Thread.sleep(1000);
+        WebElement get_to_date = driver.findElement(to_date);
+        get_to_date.sendKeys("10/01/2020");
         WebElement get_btn_timkiem = driver.findElement(btn_timkiem);
         get_btn_timkiem.click();
         Thread.sleep(7000);
