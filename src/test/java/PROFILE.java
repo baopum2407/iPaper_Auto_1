@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 public class PROFILE {
+
     private WebDriver driver;
     private By username = By.xpath("//*[@id=\"logoutform\"]/div/nav/div[1]/div/ul/li[2]/a/p");
     private By user_infor_Logout = By.xpath("//*[@id=\"infoUser\"]");
@@ -22,6 +23,8 @@ public class PROFILE {
     private By btn_luu = By.xpath("//*[@id=\"search-box-1\"]/div[3]/a");
     private By tochuc = By.xpath("//*[@id=\"id-org-for-account\"]/div/div[1]/div/h2");
     private By table = By.xpath("//*[@id=\"orgForAccountTable\"]/thead/tr");
+
+
     Params params = new Params();
 
     public PROFILE(WebDriver driver) {
